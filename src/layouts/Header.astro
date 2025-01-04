@@ -1,0 +1,82 @@
+---
+
+---
+
+<header class="l-header l-wrapper">
+  <div class="l-header_area">
+    <h1 class="l-header_title">Tips</h1>
+    <nav class="l-header_nav">
+      <ul class="l-header_list">
+        <li class="l-header_item">
+          <a href="" class="l-header_link">css</a>
+        </li>
+        <li class="l-header_item">
+          <a href="" class="l-header_link">js</a>
+        </li>
+        <li class="l-header_item">
+          <a href="" class="l-header_link">other</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '../styles/foundation/setting/mixin' as *;
+  @use '../styles/foundation/setting/function' as *;
+  @use '../styles/foundation/variable/color' as *;
+  .l-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    @include media(sp) {
+      height: sp(48);
+    }
+    @include media(pc) {
+      height: pc(160);
+    }
+    > .l-header_area {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include media(sp) {
+        height: sp(48);
+      }
+      @include media(pc) {
+        height: pc(160);
+      }
+      > .l-header_title {
+        line-height: 1;
+        @include media(sp) {
+          font-size: sp(32);
+        }
+        @include media(pc) {
+          font-size: pc(72);
+        }
+      }
+      > .l-header_nav {
+        > .l-header_list {
+          display: flex;
+          align-items: center;
+          @include media(sp) {
+            gap: sp(24);
+          }
+          @include media(pc) {
+            gap: pc(48);
+          }
+          > .l-header_item {
+            display: flex;
+            > .l-header_link {
+              color: $color_black_01;
+              @include media(pc) {
+                font-size: pc(36);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

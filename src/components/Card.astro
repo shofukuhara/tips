@@ -1,0 +1,17 @@
+---
+const { link, category, title, date } = Astro.props;
+// const now = new Date();
+// const date = now.toLocaleDateString('ja-JP');
+---
+
+<a href=`${link}` class="c-card">
+  <div class="c-card_area">
+    <div class="c-card_head">
+      <p class="c-card_tag">{category}</p>
+    </div>
+    <div class="c-card_body">
+      <h3 class="c-card_title">{title}</h3>
+      <p class="c-card_date">{date}</p>
+    </div>
+  </div>
+</a>
