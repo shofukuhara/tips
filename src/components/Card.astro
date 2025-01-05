@@ -15,3 +15,60 @@ const { link, category, title, date } = Astro.props;
     </div>
   </div>
 </a>
+
+<style lang="scss">
+  @use '../styles/foundation/setting/mixin' as *;
+  @use '../styles/foundation/setting/function' as *;
+  @use '../styles/foundation/variable/color' as *;
+  .c-card {
+    border: 1px solid $color_black_01;
+    display: block;
+    @include media(sp) {
+    }
+    @include media(pc) {
+      width: pc(320);
+      border-radius: pc(8);
+    }
+    > .c-card_area {
+      > .c-card_head {
+        aspect-ratio: 1;
+        border-bottom: 1px solid $color_black_01;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media(pc) {
+          width: pc(320);
+        }
+        > .c-card_tag {
+          color: $color_black_01;
+          @include media(pc) {
+            font-size: pc(40);
+          }
+        }
+      }
+      > .c-card_body {
+        position: relative;
+        @include media(pc) {
+          margin-top: pc(16);
+          min-height: pc(140);
+        }
+        > .c-card_title {
+          color: $color_black_01;
+          @include media(pc) {
+            font-size: pc(24);
+            margin-left: pc(16);
+          }
+        }
+        > .c-card_date {
+          position: absolute;
+          color: $color_black_01;
+          @include media(pc) {
+            font-size: pc(24);
+            left: pc(16);
+            bottom: pc(16);
+          }
+        }
+      }
+    }
+  }
+</style>

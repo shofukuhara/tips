@@ -11,7 +11,7 @@ const description = 'Tips | TOP';
 
 <Layout {title} {description} pageData="top">
   <Header />
-  <div class="l-wrapper">
+  <div class="p-top l-wrapper">
     <Card
       link="/src/pages/js/page-01.astro"
       category="js"
@@ -20,3 +20,14 @@ const description = 'Tips | TOP';
     />
   </div>
 </Layout>
+
+<style lang="scss">
+  @use '../styles/foundation/setting/mixin' as *;
+  @use '../styles/foundation/setting/function' as *;
+  @use '../styles/foundation/variable/color' as *;
+  .p-top {
+    @include media(pc) {
+      margin-top: pc(240);
+    }
+  }
+</style>
