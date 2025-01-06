@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Card from '../../components/Card.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | js GSAPアンカーリンク';
+const description = 'Tips | js GSAPアンカーリンク';
+---
+
+<Layout {title} {description} pageData="p-page01">
+  <Header />
+  <div class="p-page01">
+    <div class="p-page01_fv">
+      <nav class="p-page01_nav">
+        <ul class="p-page01_list">
+          <li class="p-page01_item">
+            <a class="p-page01_link" href="#section1">section01</a>
+          </li>
+          <li class="p-page01_item">
+            <a class="p-page01_link" href="#section2">section02</a>
+          </li>
+          <li class="p-page01_item">
+            <a class="p-page01_link" href="#section3">section03</a>
+          </li>
+          <li class="p-page01_item">
+            <a class="p-page01_link" href="#section4">section04</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <section id="section1" class="p-page01_section">
+      <h2 class="p-page01_title">section01</h2>
+    </section>
+    <section id="section2" class="p-page01_section">
+      <h2 class="p-page01_title">section02</h2>
+    </section>
+    <section id="section3" class="p-page01_section">
+      <h2 class="p-page01_title">section03</h2>
+    </section>
+    <section id="section4" class="p-page01_section">
+      <h2 class="p-page01_title">section04</h2>
+    </section>
+  </div>
+
+  <style lang="scss">
+    @use '../../styles/foundation/setting/mixin' as *;
+    @use '../../styles/foundation/setting/function' as *;
+    @use '../../styles/foundation/variable/color' as *;
+    .p-page01 {
+      position: relative;
+      > .p-page01_fv {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: $color_white_01;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > .p-page01_nav {
+          > .p-page01_list {
+            display: flex;
+            @include media(pc) {
+              gap: pc(80);
+            }
+            > .p-page01_item {
+              > .p-page01_link {
+                color: $color_black_01;
+                display: block;
+                @include media(pc) {
+                  font-size: pc(32);
+                  opacity: 1;
+                  transition: 0.6s ease-out;
+                  transition-property: opacity;
+                }
+                &:hover {
+                  @include media(pc) {
+                    opacity: 0.6;
+                    transition: 0.6s ease-out;
+                    transition-property: opacity;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      > .p-page01_section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid $color_black_01;
+        height: 100vh;
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    import { gsap } from 'gsap';
+    import { Observer } from 'gsap/Observer';
+    import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+    import { CustomEase } from 'gsap/CustomEase';
+
+    gsap.registerPlugin(Observer, ScrollToPlugin, CustomEase);
+
+    class ancher {
+      constructor() {
+        this.anchorLinks = document.querySelectorAll('a[href^="#"]');
+        this.header = document.querySelector('[data-header]');
+      }
+
+      init() {
+        this.anchorLinks.forEach((link) => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1); // #を除く
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              this._move(targetElement);
+            }
+          });
+        });
+      }
+
+      _move(element) {
+        gsap.to(window, {
+          duration: 1,
+          ease: 'power2.out',
+          scrollTo: {
+            y: element.offsetTop - this._headerHeight() * 2, // 修正済み
+            autoKill: false,
+          },
+        });
+      }
+
+      _headerHeight() {
+        return this.header ? this.header.clientHeight : 0; // 修正済み
+      }
+    }
+
+    const anchor = new ancher();
+    anchor.init();
+  </script>
+</Layout>
