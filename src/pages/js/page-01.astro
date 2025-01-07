@@ -62,6 +62,9 @@ const description = 'Tips | js GSAPアンカーリンク';
         > .p-page01_nav {
           > .p-page01_list {
             display: flex;
+            @include media(sp) {
+              gap: sp(40);
+            }
             @include media(pc) {
               gap: pc(80);
             }
@@ -97,51 +100,4 @@ const description = 'Tips | js GSAPアンカーリンク';
       }
     }
   </style>
-
-  <script is:inline>
-    import { gsap } from 'gsap';
-    import { Observer } from 'gsap/Observer';
-    import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-    import { CustomEase } from 'gsap/CustomEase';
-
-    gsap.registerPlugin(Observer, ScrollToPlugin, CustomEase);
-
-    class ancher {
-      constructor() {
-        this.anchorLinks = document.querySelectorAll('a[href^="#"]');
-        this.header = document.querySelector('[data-header]');
-      }
-
-      init() {
-        this.anchorLinks.forEach((link) => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1); // #を除く
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              this._move(targetElement);
-            }
-          });
-        });
-      }
-
-      _move(element) {
-        gsap.to(window, {
-          duration: 1,
-          ease: 'power2.out',
-          scrollTo: {
-            y: element.offsetTop - this._headerHeight() * 2, // 修正済み
-            autoKill: false,
-          },
-        });
-      }
-
-      _headerHeight() {
-        return this.header ? this.header.clientHeight : 0; // 修正済み
-      }
-    }
-
-    const anchor = new ancher();
-    anchor.init();
-  </script>
 </Layout>

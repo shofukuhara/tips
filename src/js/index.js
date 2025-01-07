@@ -1,16 +1,4 @@
-// class fadeEffect {
-//   constructor() {
-//     this.logo = document.querySelector('[data-logo]');
-//   }
-//   init() {
-//     window.addEventListener('DOMContentLoaded', () => {
-//       this._fade();
-//     });
-//   }
-//   _fade() {
-//     this.logo.setAttribute('data-logo', 'active');
-//   }
-// }
+import { ancher } from './module/anchor';
 
-// const fade = new fadeEffect();
-// fade.init();
+const anchor = new ancher();
+anchor.init();
