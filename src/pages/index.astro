@@ -12,11 +12,11 @@ const description = 'Tips | TOP';
 <Layout {title} {description} pageData="top">
   <Header />
   <div class="p-top l-wrapper">
+    <Card link="/js/page-01/" category="js" title="GSAPアンカーリンク" />
     <Card
-      link="/js/page-01/"
+      link="/js/page-02/"
       category="js"
-      title="GSAPアンカーリンク"
-      date="2025.01.07"
+      title="GSAP & IntersectionObserver フェードイン"
     />
   </div>
 </Layout>
@@ -26,8 +26,14 @@ const description = 'Tips | TOP';
   @use '../styles/foundation/setting/function' as *;
   @use '../styles/foundation/variable/color' as *;
   .p-top {
+    @include media(sp) {
+      margin-top: sp(80);
+    }
     @include media(pc) {
       margin-top: pc(240);
+      display: flex;
+      flex-wrap: wrap;
+      gap: pc(40);
     }
   }
 </style>

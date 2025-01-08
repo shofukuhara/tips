@@ -11,7 +11,6 @@ const { link, category, title, date } = Astro.props;
     </div>
     <div class="c-card_body">
       <h3 class="c-card_title">{title}</h3>
-      <p class="c-card_date">{date}</p>
     </div>
   </div>
 </a>
@@ -21,26 +20,33 @@ const { link, category, title, date } = Astro.props;
   @use '../styles/foundation/setting/function' as *;
   @use '../styles/foundation/variable/color' as *;
   .c-card {
-    border: 1px solid $color_black_01;
     display: block;
     @include media(sp) {
+      width: 100%;
     }
     @include media(pc) {
-      width: pc(320);
-      border-radius: pc(8);
+      width: pc(290);
     }
     > .c-card_area {
       > .c-card_head {
         aspect-ratio: 1;
-        border-bottom: 1px solid $color_black_01;
+        border: 1px solid $color_black_01;
         display: flex;
         align-items: center;
         justify-content: center;
+        @include media(sp) {
+          width: 100%;
+          border-radius: sp(8);
+        }
         @include media(pc) {
-          width: pc(320);
+          width: pc(290);
+          border-radius: pc(8);
         }
         > .c-card_tag {
           color: $color_black_01;
+          @include media(sp) {
+            font-size: sp(28);
+          }
           @include media(pc) {
             font-size: pc(40);
           }
@@ -48,24 +54,21 @@ const { link, category, title, date } = Astro.props;
       }
       > .c-card_body {
         position: relative;
+        @include media(sp) {
+          margin-top: sp(16);
+          min-height: sp(96);
+        }
         @include media(pc) {
           margin-top: pc(16);
           min-height: pc(140);
         }
         > .c-card_title {
           color: $color_black_01;
-          @include media(pc) {
-            font-size: pc(24);
-            margin-left: pc(16);
+          @include media(sp) {
+            font-size: sp(16);
           }
-        }
-        > .c-card_date {
-          position: absolute;
-          color: $color_black_01;
           @include media(pc) {
             font-size: pc(24);
-            left: pc(16);
-            bottom: pc(16);
           }
         }
       }

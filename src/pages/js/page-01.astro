@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../layouts/Header.astro';
-import Card from '../../components/Card.astro';
 import ImageFrame from '../../modules/ImageFrame.astro';
 const imagePath = './assets/images/';
 // headタグ
@@ -63,7 +62,7 @@ const description = 'Tips | js GSAPアンカーリンク';
           > .p-page01_list {
             display: flex;
             @include media(sp) {
-              gap: sp(40);
+              gap: sp(16);
             }
             @include media(pc) {
               gap: pc(80);
@@ -72,6 +71,9 @@ const description = 'Tips | js GSAPアンカーリンク';
               > .p-page01_link {
                 color: $color_black_01;
                 display: block;
+                @include media(sp) {
+                  font-size: sp(16);
+                }
                 @include media(pc) {
                   font-size: pc(32);
                   opacity: 1;
@@ -97,6 +99,14 @@ const description = 'Tips | js GSAPアンカーリンク';
         border-top: 1px solid $color_black_01;
         height: 100vh;
         width: 100%;
+        > .p-page01_title {
+          @include media(sp) {
+            font-size: sp(16);
+          }
+          @include media(pc) {
+            font-size: pc(28);
+          }
+        }
       }
     }
   </style>
