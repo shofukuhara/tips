@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 export class scrollAnimationObserver {
-  constructor(options = { threshold: 0.5, rootMargin: '0px' }) {
+  constructor(options = { threshold: 0.55, rootMargin: '0px' }) {
     // 複数の observer を保存
     this.observers = [];
     this.options = options;
@@ -15,7 +15,7 @@ export class scrollAnimationObserver {
         // 交差した場合のアニメーション
         if (target.hasAttribute(this.fadeItem)) {
           gsap.to(target, {
-            duration: 2,
+            duration: 0.8,
             ease: 'power2.out',
             autoAlpha: 1,
             onComplete: () => {
@@ -45,8 +45,8 @@ export class scrollAnimationObserver {
   // 監視を開始
   init() {
     this._createObserver(`[${this.fadeItem}]`, {
-      rootMargin: '0px 0px -50% 0px',
-      threshold: 0.5,
+      rootMargin: '0px 0px 0px 0px',
+      threshold: 0.55,
     });
   }
 }

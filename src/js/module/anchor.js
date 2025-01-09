@@ -28,7 +28,7 @@ export class ancher {
       duration: 1,
       ease: 'power2.out',
       scrollTo: {
-        y: element.offsetTop + this._headerHeight(),
+        y: element.offsetTop,
         autoKill: false,
       },
     });
