@@ -1,6 +1,6 @@
 ---
 import '../styles/index.scss';
-const { pageData, title, description } = Astro.props;
+const { pageData, title, description, attribute = {} } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +19,7 @@ const { pageData, title, description } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body data-page={pageData}>
+  <body data-page={pageData} {...attribute}>
     <slot />
   </body>
 </html>

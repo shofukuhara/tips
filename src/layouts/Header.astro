@@ -4,7 +4,9 @@
 
 <header class="l-header l-wrapper" data-header>
   <div class="l-header_area">
-    <h1 class="l-header_title">Tips</h1>
+    <h1 class="l-header_title">
+      <a class="l-header_link" href="/">Tips</a>
+    </h1>
     <nav class="l-header_nav">
       <ul class="l-header_list">
         <li class="l-header_item">
@@ -49,12 +51,15 @@
         height: pc(160);
       }
       > .l-header_title {
-        line-height: 1;
-        @include media(sp) {
-          font-size: sp(32);
-        }
-        @include media(pc) {
-          font-size: pc(72);
+        > .l-header_link {
+          color: $color_black_01;
+          line-height: 1;
+          @include media(sp) {
+            font-size: sp(32);
+          }
+          @include media(pc) {
+            font-size: pc(72);
+          }
         }
       }
       > .l-header_nav {

@@ -1,0 +1,73 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../layouts/Header.astro';
+import Button from '../../../../components/Button.astro';
+import ImageFrame from '../../../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | js 非同期遷移(barba.js)';
+const description = 'Tips | js 非同期遷移(barba.js)';
+---
+
+<Layout
+  {title}
+  {description}
+  pageData="p-page03"
+  attribute={{ 'data-barba': 'wrapper' }}
+>
+  <Header />
+  <div class="p-page03" data-barba="container" data-barba-namespace="page">
+    <div
+      data-circle
+      class="p-page03_bg __01"
+      style="clip-path: circle(0% at 50% 50%);"
+    >
+    </div>
+    <div class="p-page03_inner">
+      <h2 class="p-page03_title">page03-1</h2>
+      <div class="p-page03_button">
+        <Button
+          link="/js/page-03/02/"
+          text="次のページへ"
+          className=""
+          data={{ 'data-item': '' }}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../../../styles/foundation/setting/mixin' as *;
+  @use '../../../../styles/foundation/setting/function' as *;
+  @use '../../../../styles/foundation/variable/color' as *;
+  // .p-page03 {
+  //   width: 100%;
+  //   height: 100vh;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   > .p-page03_bg {
+  //     position: fixed;
+  //     width: 100%;
+  //     height: 100vh;
+  //     top: 0;
+  //     left: 0;
+  //     z-index: 100;
+  //     background-color: #859ec7;
+  //   }
+  //   > .p-page03_inner {
+  //     > .p-page03_title {
+  //       text-align: center;
+  //       @include media(pc) {
+  //         font-size: pc(32);
+  //       }
+  //     }
+  //     > .p-page03_button {
+  //       @include media(pc) {
+  //         margin-top: pc(32);
+  //       }
+  //     }
+  //   }
+  // }
+</style>

@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../layouts/Header.astro';
+import Button from '../../../components/Button.astro';
+import ImageFrame from '../../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | js 非同期遷移(barba.js)';
+const description = 'Tips | js 非同期遷移(barba.js)';
+---
+
+<Layout
+  {title}
+  {description}
+  pageData="p-page03"
+  attribute={{ 'data-barba': 'wrapper' }}
+>
+  <Header />
+  <div class="p-page03" data-barba="container" data-barba-namespace="page">
+    <div
+      data-circle
+      class="p-page03_bg"
+      style="clip-path: circle(0% at 50% 50%);"
+    >
+    </div>
+    <div class="p-page03_inner">
+      <h2 class="p-page03_title">非同期遷移(barba.js)</h2>
+      <div class="p-page03_button">
+        <Button
+          link="/js/page-03/01/"
+          text="次のページへ"
+          className=""
+          data={{ 'data-item': '' }}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../../styles/foundation/setting/mixin' as *;
+  @use '../../../styles/foundation/setting/function' as *;
+  @use '../../../styles/foundation/variable/color' as *;
+</style>

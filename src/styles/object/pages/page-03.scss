@@ -1,0 +1,47 @@
+@use '../../foundation/foundation' as *;
+
+.p-page03 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(sp) {
+    height: 100svb;
+  }
+  > .p-page03_bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    inset: 0;
+    z-index: -1;
+    @include media(sp) {
+      height: 100svb;
+    }
+    &.__01 {
+      background-color: #859ec7;
+    }
+    &.__02 {
+      background-color: #85c7c2;
+    }
+  }
+  > .p-page03_inner {
+    > .p-page03_title {
+      text-align: center;
+      @include media(sp) {
+        font-size: sp(24);
+      }
+      @include media(pc) {
+        font-size: pc(32);
+      }
+    }
+    > .p-page03_button {
+      @include media(sp) {
+        margin-top: sp(24);
+      }
+      @include media(pc) {
+        margin-top: pc(32);
+      }
+    }
+  }
+}

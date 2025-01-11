@@ -1,0 +1,38 @@
+---
+const { text, link, className = '', data } = Astro.props;
+const attributes = data ? { ...data } : {};
+---
+
+<a href=`${link}` class={`c-button ${className}`.trim()} {...attributes}>
+  <span class="c-button_text">{text}</span>
+</a>
+
+<style lang="scss">
+  @use '../styles/foundation/setting/mixin' as *;
+  @use '../styles/foundation/setting/function' as *;
+  @use '../styles/foundation/variable/color' as *;
+  .c-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color_black_01;
+    pointer-events: auto;
+    @include media(sp) {
+      width: sp(280);
+      min-height: sp(56);
+    }
+    @include media(pc) {
+      width: pc(280);
+      min-height: pc(56);
+    }
+    > .c-button_text {
+      color: $color_white_01;
+      @include media(sp) {
+        font-size: sp(16);
+      }
+      @include media(pc) {
+        font-size: pc(24);
+      }
+    }
+  }
+</style>
