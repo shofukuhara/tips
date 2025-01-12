@@ -10,7 +10,7 @@ const { link, category, title } = Astro.props;
       <p class="c-card_tag">{category}</p>
     </div>
     <div class="c-card_body">
-      <h3 class="c-card_title">{title}</h3>
+      <h3 class="c-card_title" set:html={title} />
     </div>
   </div>
 </a>
@@ -68,7 +68,7 @@ const { link, category, title } = Astro.props;
             font-size: sp(16);
           }
           @include media(pc) {
-            font-size: pc(24);
+            font-size: pc(16);
           }
         }
       }
