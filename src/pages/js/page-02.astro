@@ -25,52 +25,51 @@ const description = 'Tips | js GSAP & IntersectionObserver フェードイン';
       <h2 class="p-page02_title" data-scroll-fade>section04</h2>
     </section>
   </div>
-
-  <style lang="scss">
-    @use '../../styles/foundation/setting/mixin' as *;
-    @use '../../styles/foundation/setting/function' as *;
-    @use '../../styles/foundation/variable/color' as *;
-    .p-page02 {
-      position: relative;
-      > .p-page02_fv {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: $color_white_01;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include media(pc) {
-          font-size: pc(40);
-        }
+</Layout>
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page02 {
+    position: relative;
+    > .p-page02_fv {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: $color_white_01;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include media(pc) {
+        font-size: pc(40);
       }
-      > .p-page02_section {
+    }
+    > .p-page02_section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid $color_black_01;
+      height: 100vh;
+      width: 100%;
+      > .p-page02_title {
+        border: 1px solid $color_black_01;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-top: 1px solid $color_black_01;
-        height: 100vh;
-        width: 100%;
-        > .p-page02_title {
-          border: 1px solid $color_black_01;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          @include media(sp) {
-            font-size: sp(16);
-          }
-          @include media(pc) {
-            width: pc(300);
-            height: pc(300);
-            font-size: pc(28);
-          }
-          &[data-scroll-fade] {
-            opacity: 0;
-            visibility: hidden;
-          }
+        @include media(sp) {
+          font-size: sp(16);
+        }
+        @include media(pc) {
+          width: pc(300);
+          height: pc(300);
+          font-size: pc(28);
+        }
+        &[data-scroll-fade] {
+          opacity: 0;
+          visibility: hidden;
         }
       }
     }
-  </style>
-</Layout>
+  }
+</style>
