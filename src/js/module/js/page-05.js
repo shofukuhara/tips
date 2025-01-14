@@ -15,16 +15,16 @@ export class scrollScale {
   }
   ScrollTrigger() {
     gsap.to(this.image, {
-      scale: 1.5, // 拡大倍率
-      duration: 1, // アニメーションの長さ
+      width: '100vw',
+      height: '100vh',
+      duration: 1,
       ease: 'power1.out',
       scrollTrigger: {
-        trigger: this.section, // トリガー要素
-        start: 'top center', // スクロール開始位置
-        end: 'bottom top', // スクロール終了位置
-        scrub: true, // スクロールに応じてアニメーションを同期
-        markers: true, // デバッグ用のマーカー
-        pin: false, // 要素を固定しない
+        trigger: this.section,
+        start: 'top bottom',
+        end: 'top top',
+        scrub: true,
+        // markers: true,
       },
     });
   }

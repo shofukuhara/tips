@@ -2,6 +2,7 @@
 
 .p-page05 {
   position: relative;
+  overflow: hidden;
   > .p-page05_fv {
     top: 0;
     left: 0;
@@ -30,31 +31,30 @@
       }
     }
   }
-  > .pin-spacer {
-    > .p-page05_section {
-      > .p-page05_inner {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: $color_black_01;
+  > .p-page05_section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include media(pc) {
+      font-size: pc(40);
+    }
+    > .p-page05_inner {
+      .p-page05_img {
+        object-fit: cover;
+        object-position: center center;
         @include media(sp) {
-          height: 100svb;
+          width: sp(280);
+          height: sp(280);
         }
-        .p-page05_img {
-          @include media(sp) {
-            width: sp(280);
-            height: sp(280);
-          }
-          @include media(pc) {
-            width: pc(400);
-            height: pc(400);
-          }
-          > .i {
-            width: 100%;
-            height: 100%;
-          }
+        @include media(pc) {
+          width: pc(400);
+          height: pc(400);
+        }
+        > .i {
+          width: 100%;
+          height: 100%;
         }
       }
     }
