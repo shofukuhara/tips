@@ -3,6 +3,7 @@ import { scrollAnimationObserver } from './module/js/page-02';
 import { loadAnimation } from './module/js/page-03';
 import { splitAnimation } from './module/js/page-04';
 import { scrollScale } from './module/js/page-05';
+import { splitFadeScroll } from './module/js/page-06';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -20,4 +21,7 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page05') {
   const scale = new scrollScale();
   scale.init();
+} else if (pageAttribute === 'page06') {
+  const scrollItem = new splitFadeScroll();
+  scrollItem.init();
 }

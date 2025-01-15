@@ -1,38 +1,40 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
 import ImageFrame from '../../modules/ImageFrame.astro';
 const imagePath = './assets/images/';
 // headタグ
-const title = 'Tips | js GSAP & IntersectionObserver フェードイン';
-const description = 'Tips | js GSAP & IntersectionObserver フェードイン';
+const title = 'Tips | js スクロール + テキスト一文字ずつ表示(GSAP)';
+const description = 'Tips | js スクロール + テキスト一文字ずつ表示(GSAP)';
 ---
 
-<Layout {title} {description} pageData="page02">
+<Layout {title} {description} pageData="page06">
   <Header />
-  <div class="p-page02">
-    <div class="p-page02_fv">↓スクロールしてね！</div>
-    <section class="p-page02_section">
-      <h2 class="p-page02_title" data-scroll-fade>section01</h2>
+  <div class="p-page06">
+    <div class="p-page06_fv">↓スクロールしてね！</div>
+    <section class="p-page06_section">
+      <h2 class="p-page06_title" data-split-fade>section01</h2>
     </section>
-    <section class="p-page02_section">
-      <h2 class="p-page02_title" data-scroll-fade>section02</h2>
+    <section class="p-page06_section">
+      <h2 class="p-page06_title" data-split-fade>section02</h2>
     </section>
-    <section class="p-page02_section">
-      <h2 class="p-page02_title" data-scroll-fade>section03</h2>
+    <section class="p-page06_section">
+      <h2 class="p-page06_title" data-split-fade>section03</h2>
     </section>
-    <section class="p-page02_section">
-      <h2 class="p-page02_title" data-scroll-fade>section04</h2>
+    <section class="p-page06_section">
+      <h2 class="p-page06_title" data-split-fade>section04</h2>
     </section>
   </div>
 </Layout>
+
 <style lang="scss">
   @use '../../styles/foundation/setting/mixin' as *;
   @use '../../styles/foundation/setting/function' as *;
   @use '../../styles/foundation/variable/color' as *;
-  .p-page02 {
+  .p-page06 {
     position: relative;
-    > .p-page02_fv {
+    > .p-page06_fv {
       top: 0;
       left: 0;
       width: 100%;
@@ -45,14 +47,14 @@ const description = 'Tips | js GSAP & IntersectionObserver フェードイン';
         font-size: pc(40);
       }
     }
-    > .p-page02_section {
+    > .p-page06_section {
       display: flex;
       align-items: center;
       justify-content: center;
       border-top: 1px solid $color_black_01;
       height: 100vh;
       width: 100%;
-      > .p-page02_title {
+      > .p-page06_title {
         border: 1px solid $color_black_01;
         display: flex;
         align-items: center;
