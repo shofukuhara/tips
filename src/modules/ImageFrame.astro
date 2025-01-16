@@ -10,6 +10,7 @@ type Props = {
   alt?: string;
   loading?: 'lazy' | 'eager';
   format?: 'webp' | 'avif';
+  [key: string]: any;
 };
 
 const {
@@ -19,6 +20,7 @@ const {
   alt = '',
   loading = 'lazy',
   format = 'webp',
+  ...dataAttributes
 } = Astro.props;
 
 const importImage = async (src: string) => {
@@ -57,6 +59,7 @@ const images = await importImages();
           loading={loading}
           alt={alt}
           class:list={[classNames]}
+          {...dataAttributes}
         />
       ) : (
         <picture class:list={[classNames]}>
@@ -70,6 +73,7 @@ const images = await importImages();
             loading={loading}
             alt={alt}
             class="i"
+            {...dataAttributes}
           />
         </picture>
       )}

@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | js スクロール + テキスト一文字ずつ表示(GSAP)';
+const description = 'Tips | js スクロール + テキスト一文字ずつ表示(GSAP)';
+---
+
+<Layout {title} {description} pageData="page06">
+  <Header />
+  <div class="p-page07">
+    <div class="p-page07_fv">↓スクロールしてね！</div>
+    <section class="p-page07_section" data-section>
+      <div class="p-page07_textArea">
+        <p class="p-page07_text">
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキスト
+        </p>
+      </div>
+      <div class="p-page07_img">
+        <ImageFrame
+          srcPaths={['img_01.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+      </div>
+    </section>
+    <section class="p-page07_section __reverse" data-section>
+      <div class="p-page07_textArea">
+        <p class="p-page07_text">
+          テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          テキストテキストテキストテキストテキスト
+        </p>
+      </div>
+      <div class="p-page07_img">
+        <ImageFrame
+          srcPaths={['img_02.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+      </div>
+    </section>
+
+    <style lang="scss">
+      @use '../../styles/foundation/setting/mixin' as *;
+      @use '../../styles/foundation/setting/function' as *;
+      @use '../../styles/foundation/variable/color' as *;
+      .p-page07 {
+        position: relative;
+        > .p-page07_fv {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: $color_white_01;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include media(pc) {
+            font-size: pc(40);
+          }
+        }
+        > .p-page07_section {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-top: 1px solid $color_black_01;
+          height: 100vh;
+          width: 100%;
+          &.__reverse {
+            flex-direction: row-reverse;
+          }
+          @include media(pc) {
+            gap: pc(80);
+          }
+          > .p-page07_textArea {
+            @include media(pc) {
+              width: pc(500);
+            }
+          }
+          > .p-page07_img {
+            @include media(pc) {
+              width: pc(500);
+            }
+            > .i {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center center;
+            }
+          }
+        }
+      }
+    </style>
+  </div></Layout
+>
