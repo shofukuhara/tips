@@ -13,16 +13,16 @@ const description = 'Tips | js スクロール + テキスト一文字ずつ表�
   <Header />
   <div class="p-page06">
     <div class="p-page06_fv">↓スクロールしてね！</div>
-    <section class="p-page06_section">
+    <section class="p-page06_section" data-section>
       <h2 class="p-page06_title" data-split-fade>section01</h2>
     </section>
-    <section class="p-page06_section">
+    <section class="p-page06_section" data-section>
       <h2 class="p-page06_title" data-split-fade>section02</h2>
     </section>
-    <section class="p-page06_section">
+    <section class="p-page06_section" data-section>
       <h2 class="p-page06_title" data-split-fade>section03</h2>
     </section>
-    <section class="p-page06_section">
+    <section class="p-page06_section" data-section>
       <h2 class="p-page06_title" data-split-fade>section04</h2>
     </section>
   </div>
@@ -55,21 +55,11 @@ const description = 'Tips | js スクロール + テキスト一文字ずつ表�
       height: 100vh;
       width: 100%;
       > .p-page06_title {
-        border: 1px solid $color_black_01;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         @include media(sp) {
           font-size: sp(16);
         }
         @include media(pc) {
-          width: pc(300);
-          height: pc(300);
-          font-size: pc(28);
-        }
-        &[data-scroll-fade] {
-          opacity: 0;
-          visibility: hidden;
+          font-size: pc(48);
         }
       }
     }
