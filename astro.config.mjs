@@ -9,7 +9,7 @@ export default defineConfig({
   },
   // html圧縮する場合はtrueにする
   compressHTML: false,
-  cssCodeSplit: true,
+  cssCodeSplit: false,
   integrations: [relativeLinks()],
   build: {
     assets: 'assets/js',

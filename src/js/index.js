@@ -5,6 +5,7 @@ import { splitAnimation } from './module/js/page-04';
 import { scrollScale } from './module/js/page-05';
 import { splitFadeScroll } from './module/js/page-06';
 import { parallax } from './module/js/page-07';
+import { Slider } from './module/js/page-08';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -28,4 +29,7 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page07') {
   const parallaxItem = new parallax();
   parallaxItem.init();
+} else if (pageAttribute === 'page08') {
+  const slide = new Slider();
+  slide.init();
 }

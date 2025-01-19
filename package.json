@@ -13,7 +13,8 @@
     "@barba/core": "^2.10.3",
     "@barba/prefetch": "^2.2.0",
     "astro": "^5.1.1",
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "swiper": "^8.4.7"
   },
   "devDependencies": {
     "astro-compress": "^2.3.5",

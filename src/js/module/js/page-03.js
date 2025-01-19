@@ -13,9 +13,15 @@ export class loadAnimation {
         {
           name: 'default-transition',
           leave: (data) =>
-            this._animateClipPath(data.current.container, 'circle(0% at 50% 50%)'),
+            this._animateClipPath(
+              data.current.container,
+              'circle(0% at 50% 50%)'
+            ),
           enter: (data) =>
-            this._animateClipPath(data.next.container, 'circle(100% at 50% 50%)'),
+            this._animateClipPath(
+              data.next.container,
+              'circle(100% at 50% 50%)'
+            ),
         },
       ],
     });
