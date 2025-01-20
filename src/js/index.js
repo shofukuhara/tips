@@ -32,4 +32,7 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page08') {
   const slide = new Slider();
   slide.init();
+} else if (pageAttribute === 'page09') {
+  const slide = new Slider();
+  slide.init();
 }
