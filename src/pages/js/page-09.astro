@@ -11,20 +11,46 @@ const description = 'Tips | js シンプルなスライド(splide)';
 
 <Layout {title} {description} pageData="page09">
   <Header />
-  <section class="splide" aria-label="Splideの基本的なHTML">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide">Slide 01</li>
-        <li class="splide__slide">Slide 02</li>
-        <li class="splide__slide">Slide 03</li>
-      </ul>
-    </div>
-  </section>
+  <div class="p-page09">
+    <section class="splide" aria-label="Splideの基本的なHTML">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">Slide 01</li>
+          <li class="splide__slide">Slide 02</li>
+          <li class="splide__slide">Slide 03</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </Layout>
 <style lang="scss">
   @use '../../styles/foundation/setting/mixin' as *;
   @use '../../styles/foundation/setting/function' as *;
   @use '../../styles/foundation/variable/color' as *;
   .p-page09 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .splide {
+      @include media(pc) {
+        width: pc(800);
+        height: pc(400);
+      }
+      > .splide__track {
+        > .splide__list {
+          > .splide__slide {
+            width: calc(pc(800) / 3);
+            aspect-ratio: 1;
+            background-color: blue;
+            color: $color_white_01;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
   }
 </style>

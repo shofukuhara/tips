@@ -6,6 +6,7 @@ import { scrollScale } from './module/js/page-05';
 import { splitFadeScroll } from './module/js/page-06';
 import { parallax } from './module/js/page-07';
 import { Slider } from './module/js/page-08';
+import { splide } from './module/js/page-09';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -33,6 +34,6 @@ if (pageAttribute === 'page01') {
   const slide = new Slider();
   slide.init();
 } else if (pageAttribute === 'page09') {
-  const slide = new Slider();
+  const slide = new splide();
   slide.init();
 }
