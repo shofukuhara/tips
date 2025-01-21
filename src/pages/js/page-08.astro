@@ -15,15 +15,8 @@ const description = 'Tips | js カードスライド(swiper)';
     <div class="p-page08_fv">
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide __01">
-            カード1
-          </div>
-          <div class="swiper-slide __02">
-            カード2
-          </div>
-          <div class="swiper-slide __03">
-            カード3
-          </div>
+          <div class="swiper-slide __01">カード1</div>
+          <div class="swiper-slide __02">カード2</div>
         </div>
       </div>
     </div>
@@ -47,19 +40,21 @@ const description = 'Tips | js カードスライド(swiper)';
       @include media(pc) {
         font-size: pc(40);
       }
-      >.swiper {
+      > .swiper {
+        overflow: visible;
         @include media(sp) {
-          width: sp(300);              
-          aspect-ratio: 9 / 12; 
-          border-radius: sp(8);   
+          width: sp(300);
+          aspect-ratio: 9 / 12;
+          border-radius: sp(8);
         }
         @include media(pc) {
-          width: pc(300);              
-          aspect-ratio: 9 / 12; 
-          border-radius: pc(8);        
+          width: pc(300);
+          aspect-ratio: 9 / 12;
+          border-radius: pc(8);
         }
-        >.swiper-wrapper {
-          >.swiper-slide {
+        > .swiper-wrapper {
+          transition-timing-function: ease-out;
+          > .swiper-slide {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,6 +71,5 @@ const description = 'Tips | js カードスライド(swiper)';
         }
       }
     }
-    
   }
 </style>
