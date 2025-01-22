@@ -7,6 +7,7 @@ import { splitFadeScroll } from './module/js/page-06';
 import { parallax } from './module/js/page-07';
 import { Slider } from './module/js/page-08';
 import { SplideManager } from './module/js/page-09';
+import { HoverImage } from './module/js/page-10';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -36,4 +37,19 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page09') {
   const slide = new SplideManager();
   slide.init();
+} else if (pageAttribute === 'page10') {
+  const imageArray = [
+    '../../public/assets/images/img_01.jpg',
+    '../../public/assets/images/img_02.jpg',
+    '../../public/assets/images/img_03.jpg',
+    '../../public/assets/images/img_04.jpg',
+  ];
+
+  const hoverImage = new HoverImage(
+    '[data-trigger-area]',
+    '[data-trigger-item]',
+    '[data-bg-image]',
+    imageArray
+  );
+  hoverImage.init();
 }
