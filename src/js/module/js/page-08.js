@@ -1,15 +1,16 @@
 import Swiper from 'swiper/bundle';
-import 'swiper/swiper-bundle.min.css';
+import 'swiper/css';
 
 export class Slider {
   constructor() {
-    this.content = document.querySelector(".swiper");
+    this.content = document.querySelector('.swiper');
     this.options = {
-      effect: "cards",
+      effect: 'cards',
       grabCursor: true,
+      loop: true,
     };
     this.cardsEffectOptions = {
-      perSlideOffset: 15, 
+      perSlideOffset: 15,
       perSlideRotate: 10,
       rotate: true,
       slideShadows: false,
