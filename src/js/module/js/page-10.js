@@ -60,9 +60,6 @@ export class HoverImage {
   _changeImage(index) {
     this.bgImg.style.backgroundImage = `url("${this.imageArray[index]}")`;
     gsap.set(this.bgImg, { backgroundPosition: 'center' });
-    gsap.to(this.bgImg, {
-      repeat: -1,
-      ease: 'linear',
-    });
+    gsap.to(this.bgImg, { repeat: -1, ease: 'linear' });
   }
 }
