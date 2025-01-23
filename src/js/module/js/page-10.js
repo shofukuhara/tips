@@ -37,7 +37,7 @@ export class HoverImage {
 
   _visibleImage() {
     gsap.to(this.bgImg, {
-      opacity: 0.5,
+      opacity: 1,
       visibility: 'visible',
     });
   }
@@ -51,8 +51,8 @@ export class HoverImage {
   _moveImage(event) {
     gsap.to(this.bgImg, {
       duration: 2,
-      x: event.pageX + 300,
-      y: event.pageY - 100,
+      x: event.pageX,
+      y: event.pageY,
       ease: 'Power4.easeOut',
     });
   }
@@ -60,6 +60,9 @@ export class HoverImage {
   _changeImage(index) {
     this.bgImg.style.backgroundImage = `url("${this.imageArray[index]}")`;
     gsap.set(this.bgImg, { backgroundPosition: 'center' });
-    gsap.to(this.bgImg, { repeat: -1, ease: 'linear' });
+    gsap.to(this.bgImg, {
+      repeat: -1,
+      ease: 'linear',
+    });
   }
 }
