@@ -8,6 +8,7 @@ import { parallax } from './module/js/page-07';
 import { Slider } from './module/js/page-08';
 import { SplideManager } from './module/js/page-09';
 import { HoverImage } from './module/js/page-10';
+import { fvAnimation } from './module/js/page-11';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -52,4 +53,7 @@ if (pageAttribute === 'page01') {
     imageArray
   );
   hoverImage.init();
+} else if (pageAttribute === 'page11') {
+  const fv = new fvAnimation();
+  fv.init();
 }

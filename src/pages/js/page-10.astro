@@ -5,11 +5,13 @@ import Button from '../../components/Button.astro';
 import ImageFrame from '../../modules/ImageFrame.astro';
 const imagePath = './assets/images/';
 // headタグ
-const title = 'Tips | js hoverで画像表示';
-const description = 'Tips | js hoverで画像表示';
+const metadata = {
+  title: 'Tips | js hoverで画像表示',
+  description: 'Tips | js hoverで画像表示',
+};
 ---
 
-<Layout {title} {description} pageData="page10">
+<Layout {...metadata} pageData="page10">
   <Header />
   <div class="p-page10">
     <ul class="p-page10_list" data-trigger-area>

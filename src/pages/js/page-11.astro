@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const metadata = {
+  title: 'Tips | js FVアニメーション',
+  description: 'Tips | js FVアニメーション',
+};
+---
+
+<Layout {...metadata} pageData="page11">
+  <Header />
+  <div class="p-page11">
+    <div class="p-page11_loading" data-bg></div>
+    <div class="p-page11_fv">
+      <ul class="p-page11_list" data-list>
+        <li class="p-page11_item" data-item>
+          <div class="p-page11_image">
+            <ImageFrame
+              srcPaths={['img_01.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
+        </li>
+        <li class="p-page11_item" data-item>
+          <div class="p-page11_image">
+            <ImageFrame
+              srcPaths={['img_02.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
+        </li>
+        <li class="p-page11_item" data-item>
+          <div class="p-page11_image">
+            <ImageFrame
+              srcPaths={['img_03.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
+        </li>
+        <li class="p-page11_item" data-item>
+          <div class="p-page11_image">
+            <ImageFrame
+              srcPaths={['img_04.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page11 {
+    overflow: hidden;
+    > .p-page11_loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
+      background-color: #000;
+      transform: scale(1, 1);
+      transform-origin: center top;
+    }
+    > .p-page11_fv {
+      width: 100%;
+      height: 100vh;
+      > .p-page11_list {
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        &[data-list] {
+          transform: translateX(100%);
+        }
+        > .p-page11_item {
+          width: 100%;
+          height: 100%;
+          &[data-item] {
+            scale: 0.5;
+          }
+          > .p-page11_image {
+            width: 100%;
+            height: 100%;
+            > .i {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: 30% center;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
