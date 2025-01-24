@@ -3,12 +3,17 @@ export class fvAnimation {
   constructor() {
     this.bg = document.querySelector('[data-bg]');
     this.list = document.querySelector('[data-list]');
+    this.items = document.querySelectorAll('[data-item]');
   }
   init() {
     window.addEventListener('load', () => {
       const tl = gsap.timeline();
-      // this._bgAnimation();
-      // this._fvTranslateX();
+      tl.add(() => {
+        this._bgAnimation();
+      }).add(() => {
+        this._fvTranslateX();
+        this._fvImageScale();
+      });
     });
   }
   _bgAnimation() {
@@ -20,9 +25,22 @@ export class fvAnimation {
   }
   _fvTranslateX() {
     gsap.to(this.list, {
-      duration: 1,
+      duration: 3,
       xPercent: -100,
-      ease: 'power3.out',
+      ease: 'power1.inOut',
+    });
+  }
+  _fvImageScale() {
+    this.items.forEach((item) => {
+      gsap.to(item, {
+        duration: 2,
+        delay: 0.8,
+        scale: 1,
+        ease: 'power1.inOut',
+        stagger: {
+          each: 2,
+        },
+      });
     });
   }
 }
