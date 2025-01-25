@@ -11,7 +11,7 @@ const description = 'Tips | TOP';
 
 <Layout {title} {description} pageData="top">
   <Header />
-  <div class="p-top l-wrapper">
+  <div class="p-top">
     <Card link="/js/page-01/" category="js" title="アンカーリンク(GSAP)" />
     <Card
       link="/js/page-02/"
@@ -36,9 +36,14 @@ const description = 'Tips | TOP';
     />
     <Card link="/js/page-07/" category="js" title="パララックス(GSAP)" />
     <Card link="/js/page-08/" category="js" title="カードスライド(swiper)" />
-    <Card link="/js/page-09/" category="js" title="シンプルなスライド(splide)" />
+    <Card
+      link="/js/page-09/"
+      category="js"
+      title="シンプルなスライド(splide)"
+    />
     <Card link="/js/page-10/" category="js" title="hoverで画像表示" />
     <Card link="/js/page-11/" category="js" title="FVアニメーション" />
+    <Card link="/css/page-01/" category="css" title="grid色々" />
   </div>
 </Layout>
 
@@ -52,9 +57,11 @@ const description = 'Tips | TOP';
     }
     @include media(pc) {
       margin-top: pc(240);
-      display: flex;
-      flex-wrap: wrap;
-      gap: pc(40);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      // display: flex;
+      // flex-wrap: wrap;
+      // gap: pc(40);
     }
   }
 </style>

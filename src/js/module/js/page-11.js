@@ -26,21 +26,20 @@ export class fvAnimation {
   _fvTranslateX() {
     gsap.to(this.list, {
       duration: 3,
-      xPercent: -100,
-      ease: 'power1.inOut',
+      x: '0%',
+      ease: 'power2.inOut',
     });
   }
   _fvImageScale() {
-    this.items.forEach((item) => {
-      gsap.to(item, {
-        duration: 2,
-        delay: 0.8,
-        scale: 1,
-        ease: 'power1.inOut',
-        stagger: {
-          each: 2,
-        },
-      });
+    gsap.to(this.items, {
+      duration: 2,
+      delay: 0.8,
+      scale: 1,
+      x: '0%',
+      ease: 'power1.inOut',
+      stagger: {
+        each: 0.2,
+      },
     });
   }
 }

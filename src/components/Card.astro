@@ -6,72 +6,96 @@ const { link, category, title } = Astro.props;
 
 <a href=`${link}` class="c-card">
   <div class="c-card_area">
-    <div class="c-card_head">
-      <p class="c-card_tag">{category}</p>
-    </div>
-    <div class="c-card_body">
-      <h3 class="c-card_title" set:html={title} />
+    <h3 class="c-card_title" set:html={title} />
+    <div class={`c-card_inner  ${'__' + category}`}>
+      <span class="c-card_category">{category}</span>
     </div>
   </div>
-</a>
 
-<style lang="scss">
-  @use '../styles/foundation/setting/mixin' as *;
-  @use '../styles/foundation/setting/function' as *;
-  @use '../styles/foundation/variable/color' as *;
-  .c-card {
-    display: block;
-    @include media(sp) {
-      width: 100%;
-    }
-    @include media(pc) {
-      width: pc(290);
-    }
-    > .c-card_area {
-      > .c-card_head {
+  <style lang="scss">
+    @use '../styles/foundation/setting/mixin' as *;
+    @use '../styles/foundation/setting/function' as *;
+    @use '../styles/foundation/variable/color' as *;
+    .c-card {
+      display: block;
+      border-bottom: 1px solid $color_black_01;
+      border-right: 1px solid $color_black_01;
+      &:nth-of-type(4n) {
+        border-right: none;
+      }
+      &:nth-of-type(4n + 1) {
+        border-left: none;
+      }
+      &:nth-of-type(-n + 4) {
+        border-top: 1px solid $color_black_01;
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          > .c-card_area {
+            > .c-card_title {
+              opacity: 0;
+              visibility: hidden;
+              transition: 0.2s linear;
+              transition-property: opacity, visibility;
+            }
+            > .c-card_inner {
+              // scale: 1;
+              opacity: 1;
+              visibility: visible;
+              transition: 0.85s ease-in-out;
+            }
+          }
+        }
+      }
+      @include media(sp) {
+        width: 100%;
+      }
+      @include media(pc) {
+        width: 100%;
+      }
+      > .c-card_area {
         aspect-ratio: 1;
-        border: 1px solid $color_black_01;
         display: flex;
         align-items: center;
         justify-content: center;
-        @include media(sp) {
-          width: 100%;
-          border-radius: sp(8);
-        }
-        @include media(pc) {
-          width: pc(290);
-          border-radius: pc(8);
-        }
-        > .c-card_tag {
-          color: $color_black_01;
-          @include media(sp) {
-            font-size: sp(28);
-          }
-          @include media(pc) {
-            font-size: pc(40);
-          }
-        }
-      }
-      > .c-card_body {
         position: relative;
-        @include media(sp) {
-          margin-top: sp(16);
-          min-height: sp(96);
-        }
-        @include media(pc) {
-          margin-top: pc(16);
-          min-height: pc(140);
-        }
         > .c-card_title {
           color: $color_black_01;
-          @include media(sp) {
-            font-size: sp(16);
-          }
+          text-align: center;
+          opacity: 1;
+          visibility: visible;
+          transition: 0.5s linear;
+          transition-delay: 0.8s;
+          transition-property: opacity, visibility;
           @include media(pc) {
-            font-size: pc(16);
+            font-size: pc(18);
+          }
+        }
+        > .c-card_inner {
+          width: 100%;
+          aspect-ratio: 1;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // scale: 0;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.5s linear;
+          transition-delay: 0.7s;
+          // border: 1px solid rgb(110, 110, 110);
+          &.__js {
+            background-color: rgb(224, 255, 27);
+          }
+          &.__css {
+            background-color: rgb(0, 29, 245);
+          }
+          > .c-card_category {
+            font-size: pc(48);
+            color: rgb(110, 110, 110);
           }
         }
       }
     }
-  }
-</style>
+  </style>
+</a>
