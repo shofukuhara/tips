@@ -4,24 +4,35 @@ import 'swiper/css';
 export class Slider {
   constructor() {
     this.content = document.querySelector('.swiper');
+    this.swiperInstance = null;
+    this.slides = null;
+    this.current = null;
     this.options = {
-      effect: 'cards',
+      effect: 'creative',
       grabCursor: true,
+      loopAdditionalSlides: 0,
       loop: true,
+      autoplay: {
+        delay: 2000,
+      },
     };
-    this.cardsEffectOptions = {
-      perSlideOffset: 15,
-      perSlideRotate: 10,
-      rotate: true,
-      slideShadows: false,
+    this.effectOptions = {
+      prev: {
+        translate: [0, 0, 0],
+        rotate: [0, 0, -5],
+      },
+      next: {
+        translate: [0, 0, 0],
+        rotate: [0, 0, 5],
+      },
     };
   }
 
   init() {
-    new Swiper(this.content, {
+    this.swiperInstance = new Swiper(this.content, {
       ...this.options,
-      cardsEffect: {
-        ...this.cardsEffectOptions,
+      creativeEffect: {
+        ...this.effectOptions,
       },
     });
   }
