@@ -1,0 +1,132 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const metadata = {
+  title: 'Tips | js Promise',
+  description: 'Tips | js Promise',
+};
+---
+
+<Layout {...metadata} pageData="page12">
+  <Header />
+  <div class="p-page12">
+    <div class="p-page12_fv">
+      <div class="p-page12_img">
+        <ImageFrame
+          srcPaths={['img_03.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img="fv"
+        />
+      </div>
+      <hgroup class="p-page12_title">
+        <h1 class="p-page12_en" data-en>titletitletitle</h1>
+        <span class="p-page12_ja" data-ja>タイトルタイトルタイトル</span>
+      </hgroup>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page12 {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+    .p-page12_fv {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      > .p-page12_img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        > .i {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          @include media(sp) {
+            object-position: 20% center;
+          }
+          @include media(pc) {
+            object-position: center center;
+          }
+          &[data-img='fv'] {
+            scale: 1.2;
+            opacity: 0;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+          &[data-img='active'] {
+            scale: 1;
+            opacity: 1;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+        }
+      }
+      > .p-page12_title {
+        position: absolute;
+        z-index: 2;
+        @include media(sp) {
+          left: sp(32);
+          bottom: sp(32);
+        }
+        @include media(pc) {
+          left: pc(80);
+          bottom: pc(80);
+        }
+        > .p-page12_en {
+          color: #fff;
+          &[data-en] {
+            opacity: 0;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+          &[data-en='active'] {
+            opacity: 1;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+          @include media(sp) {
+            font-size: sp(24);
+          }
+          @include media(pc) {
+            font-size: pc(48);
+          }
+        }
+        > .p-page12_ja {
+          color: #fff;
+          &[data-ja] {
+            opacity: 0;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+          &[data-ja='active'] {
+            opacity: 1;
+            transition: 1s ease-out;
+            transition-property: scale, opacity;
+          }
+          @include media(sp) {
+            font-size: sp(24);
+          }
+          @include media(pc) {
+            font-size: pc(48);
+          }
+        }
+      }
+    }
+  }
+</style>
