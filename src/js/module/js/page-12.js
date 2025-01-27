@@ -3,6 +3,7 @@ export class fvPromiseAnimation {
     this.img = document.querySelector(`[data-img="fv"]`);
     this.en = document.querySelector(`[data-en]`);
     this.ja = document.querySelector(`[data-ja]`);
+    // this.cursor = 
   }
 
   init() {
