@@ -15,8 +15,22 @@ const description = 'Tips | js カードスライド(swiper)';
     <div class="p-page08_fv">
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide __01">カード1</div>
-          <div class="swiper-slide __02">カード2</div>
+          <div class="swiper-slide __01" data-fade>
+            <ImageFrame
+              srcPaths={['img_01.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
+          <div class="swiper-slide __02" data-fade>
+            <ImageFrame
+              srcPaths={['img_02.jpg']}
+              classNames="i"
+              loading="eager"
+              data-img=""
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -57,18 +71,28 @@ const description = 'Tips | js カードスライド(swiper)';
             display: flex;
             align-items: center;
             justify-content: center;
-            &.__01 {
-              background-color: rgb(118, 118, 255);
+            will-change: opacity, transform;
+            &[data-fade='active'] {
+              animation: fade 1.5s forwards;
+              transition-property: animation;
             }
-            &.__02 {
-              background-color: rgb(118, 255, 225);
-            }
-            &.__03 {
-              background-color: rgb(218, 255, 118);
+            > .i {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center center;
             }
           }
         }
       }
+    }
+  }
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 </style>

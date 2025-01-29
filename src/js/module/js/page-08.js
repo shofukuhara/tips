@@ -9,8 +9,9 @@ export class Slider {
     this.current = null;
     this.options = {
       effect: 'creative',
-      grabCursor: true,
+      grabCursor: false,
       loopAdditionalSlides: 0,
+      longSwipes: 10,
       loop: true,
       autoplay: {
         delay: 2000,
@@ -19,7 +20,7 @@ export class Slider {
     this.effectOptions = {
       prev: {
         translate: [0, 0, 0],
-        rotate: [0, 0, -5],
+        rotate: [0, 0, 5],
       },
       next: {
         translate: [0, 0, 0],
@@ -33,6 +34,16 @@ export class Slider {
       ...this.options,
       creativeEffect: {
         ...this.effectOptions,
+      },
+      on: {
+        slideChange: function () {
+          const swiper = this;
+          const currentIndex = swiper.activeIndex;
+          swiper.slides.forEach((slide) => {
+            slide.setAttribute('data-fade', '');
+          });
+          swiper.slides[currentIndex].setAttribute('data-fade', 'active');
+        },
       },
     });
   }
