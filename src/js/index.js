@@ -10,6 +10,7 @@ import { SplideManager } from './module/js/page-09';
 import { HoverImage } from './module/js/page-10';
 import { fvAnimation } from './module/js/page-11';
 import { fvPromiseAnimation } from './module/js/page-12';
+import { stickyScale } from './module/js/page-13';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -60,4 +61,7 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page12') {
   const fvAnimation = new fvPromiseAnimation();
   fvAnimation.init();
+} else if (pageAttribute === 'page13') {
+  const scale = new stickyScale();
+  scale.init();
 }

@@ -17,7 +17,7 @@ const metadata = {
     <section class="p-page13_fv">↓スクロールしてね！</section>
     <div class="p-page13_area" data-sticky>
       <div class="p-page13_gallery">
-        <div class="p-page13_grid">
+        <div class="p-page13_grid" data-gridArea>
           <div class="p-page13_item">
             <ImageFrame
               srcPaths={['img_01.jpg']}
@@ -115,6 +115,7 @@ const metadata = {
           > .p-page13_item {
             width: pc(520);
             height: pc(380);
+            overflow: clip;
             &:nth-of-type(1) {
               position: absolute;
               top: pc(70);
