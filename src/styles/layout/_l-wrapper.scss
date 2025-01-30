@@ -9,4 +9,9 @@
   @include media(pc) {
     width: pc(1280);
   }
+  &.__s {
+    @include media(pc) {
+      width: pc(960);
+    } 
+  }
 }
