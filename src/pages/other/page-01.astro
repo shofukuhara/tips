@@ -8,18 +8,18 @@ const title = 'Tips | other アコーディオン';
 const description = 'Tips | other アコーディオン';
 ---
 
-<Layout {title} {description}>
+<Layout {title} {description} pageData="other01">
   <Header />
   <div class="p-page01">
     <div class="p-page01_fv l-wrapper __s">
       <details class="p-page01_details">
-        <summary class="p-page01_summary">
+        <summary class="p-page01_summary" data-accordion>
           <span class="p-page01_wrap">
-            アコーディオン
+            アコーディオンです！
             <span class="p-page01_icon"></span>
           </span>
         </summary>
-        <div class="p-page01_content">
+        <div class="p-page01_content" data-accordion="text">
           <p class="p-page01_text">
             アコーディオンをdetailsとsummaryを使って実装
           </p>
@@ -36,10 +36,14 @@ const description = 'Tips | other アコーディオン';
   .p-page01 {
     > .p-page01_fv {
       height: 100dvh;
-      display: grid;
-      place-items: center;
+      margin-top: pc(240);
+      // display: grid;
+      // place-items: center;
       > .p-page01_details {
         width: 100%;
+        @include media(pc) {
+          margin-top: pc(40);
+        }
         > .p-page01_summary {
           display: block;
           > .p-page01_wrap {
@@ -84,6 +88,13 @@ const description = 'Tips | other アコーディオン';
         }
         > .p-page01_content {
           overflow: hidden;
+          > .p-page01_text {
+            background-color: rgb(200, 200, 200);
+            height: 100px;
+            @include media(pc) {
+              padding: pc(16) pc(16);
+            }
+          }
         }
       }
     }
