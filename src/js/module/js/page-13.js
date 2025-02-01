@@ -27,9 +27,13 @@ export class stickyScale {
       scale: 2.8,
     });
     this.img.forEach((element) => {
-      this.custom_anime.to(element, {
-        scale: 2.8,
-      },"<");
+      this.custom_anime.to(
+        element,
+        {
+          scale: 2.8,
+        },
+        '<'
+      );
     });
   }
 }
