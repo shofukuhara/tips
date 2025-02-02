@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | css grid';
+const description = 'Tips | css grid';
+---
+
+<Layout {title} {description}>
+  <Header />
+  <div class="p-page03">
+    <div class="p-page03_fv">
+      <p class="p-page03_fvText">gridを使ってレイアウトしてます。↓</p>
+    </div>
+    <div class="p-page03_sticky">
+      <section class="p-page03_section">
+        <h2 class="p-page03_title">gridで要素を中央に配置してます。</h2>
+        <div class="p-page03_area __01">
+          <div class="box" style="--index: 10">1</div>
+        </div>
+      </section>
+      <section class="p-page03_section">
+        <h2 class="p-page03_title">gridで要素を横並びで折り返し。</h2>
+        <div class="p-page03_area __02">
+          <div class="box" style="--index: 10">1</div>
+          <div class="box" style="--index: 20">2</div>
+          <div class="box" style="--index: 30">3</div>
+          <div class="box" style="--index: 40">4</div>
+          <div class="box" style="--index: 50">5</div>
+          <div class="box" style="--index: 60">6</div>
+          <div class="box" style="--index: 70">7</div>
+          <div class="box" style="--index: 80">8</div>
+          <div class="box" style="--index: 90">9</div>
+          <div class="box" style="--index: 100">10</div>
+          <div class="box" style="--index: 110">11</div>
+          <div class="box" style="--index: 120">12</div>
+          <div class="box" style="--index: 130">13</div>
+          <div class="box" style="--index: 140">14</div>
+          <div class="box" style="--index: 150">15</div>
+          <div class="box" style="--index: 160">16</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page03 {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    .p-page03_fv {
+      width: 100%;
+      height: 100dvh;
+      display: grid;
+      place-content: center;
+      font-size: pc(40);
+    }
+    .p-page03_sticky {
+      .p-page03_section {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100dvh;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid #000;
+        > .p-page03_title {
+          width: 100%;
+          text-align: center;
+          display: grid;
+          place-content: center;
+          border-right: 1px solid #000;
+          @include media(pc) {
+            font-size: pc(32);
+          }
+        }
+        > .p-page03_area {
+          width: 100%;
+          &.__01 {
+            display: grid;
+            place-content: center;
+            > .box {
+              width: pc(160);
+              height: pc(160);
+            }
+          }
+          &.__02 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            > .box {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          > .box {
+            background-color: rgb(var(--index), var(--index), 217);
+            display: grid;
+            place-content: center;
+            color: #000000;
+            font-size: pc(24);
+          }
+        }
+      }
+    }
+  }
+</style>

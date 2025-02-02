@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | css 動画にマスク';
+const description = 'Tips | css 動画にマスク';
+---
+
+<Layout {title} {description}>
+  <Header />
+  <div class="fv">
+    <div class="video">
+      <video
+        class="item"
+        preload="auto"
+        src="../../../public/assets/images/video.mp4"
+        width="100%"
+        height="100%"
+        autoplay
+        muted
+        playsinline
+        loop></video>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .fv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .video {
+      width: 100%;
+      height: 100vh;
+      mask-image: url(../../../public/assets/images/text.svg);
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: pc(800);
+      background-color: gray;
+      position: relative;
+      .item {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+</style>
