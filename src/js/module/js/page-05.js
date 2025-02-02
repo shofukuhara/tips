@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export class scrollScale {
+export class ScrollScale {
   constructor() {
     this.section = document.querySelector('[data-section]');
     this.image = document.querySelector('[data-image]');

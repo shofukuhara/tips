@@ -3,7 +3,7 @@ import barbaPrefetch from '@barba/prefetch';
 import { gsap } from 'gsap';
 barba.use(barbaPrefetch);
 
-export class loadAnimation {
+export class LoadAnimation {
   constructor() {
     this.init();
   }

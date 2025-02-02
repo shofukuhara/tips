@@ -1,4 +1,4 @@
-export class fvPromiseAnimation {
+export class FvPromiseAnimation {
   constructor() {
     this.img = document.querySelector(`[data-img="fv"]`);
     this.en = document.querySelector(`[data-en]`);

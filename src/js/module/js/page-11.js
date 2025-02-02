@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-export class fvAnimation {
+export class FvAnimation {
   constructor() {
     this.bg = document.querySelector('[data-bg]');
     this.list = document.querySelector('[data-list]');

@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-export class scrollAnimationObserver {
+export class ScrollAnimationObserver {
   constructor(options = { threshold: 0.55, rootMargin: '0px' }) {
     // 複数の observer を保存
     this.observers = [];

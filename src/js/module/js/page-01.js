@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
 
-export class ancher {
+export class Ancher {
   constructor() {
     this.anchorLinks = document.querySelectorAll('a[href^="#"]');
     this.header = document.querySelector('[data-header]');

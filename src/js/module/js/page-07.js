@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export class parallax {
+export class Parallax {
   constructor() {
     this.imgs = document.querySelectorAll('[data-img]');
     this.sections = document.querySelectorAll('[data-section]');

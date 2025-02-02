@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export class accordion {
+export class Accordion {
   constructor() {
     this.accordions = document.querySelectorAll('[data-accordion]');
   }

@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export class splitAnimation {
+export class SplitAnimation {
   constructor() {
     this.element = document.querySelector('[data-split]');
     this.button = document.querySelector('[data-load]');

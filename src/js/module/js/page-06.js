@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export class splitFadeScroll {
+export class SplitFadeScroll {
   constructor(options = {}) {
     this.element = document.querySelectorAll('[data-split-fade]');
     this.observers = [];

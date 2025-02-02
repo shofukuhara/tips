@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
-export class stickyScale {
+export class StickyScale {
   constructor() {
     this.sticky = document.querySelector('[data-sticky]');
     this.grid = document.querySelector('[data-gridArea]');
