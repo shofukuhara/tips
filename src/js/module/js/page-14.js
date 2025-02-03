@@ -9,8 +9,10 @@ export class Canvas {
   }
 
   init() {
-    window.addEventListener('load', () => {
-      this._draw();
+    ['resize', 'scroll', 'load'].forEach((event) => {
+      window.addEventListener(event, () => {
+        this._draw();
+      });
     });
   }
 

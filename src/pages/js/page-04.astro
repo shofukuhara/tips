@@ -42,6 +42,10 @@ const description = 'Tips | js テキスト一文字ずつ表示(GSAP)';
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      @include media(sp) {
+        font-size: sp(24);
+      }
       @include media(pc) {
         font-size: pc(40);
       }
@@ -55,6 +59,9 @@ const description = 'Tips | js テキスト一文字ずつ表示(GSAP)';
           display: flex;
           align-items: center;
           justify-content: center;
+          @include media(sp) {
+            margin-top: sp(24);
+          }
           @include media(pc) {
             margin-top: pc(40);
           }

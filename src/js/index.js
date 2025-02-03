@@ -1,7 +1,9 @@
 import { Ancher } from './module/js/page-01';
 import { ScrollAnimationObserver } from './module/js/page-02';
+import { LoadAnimation } from './module/js/page-03';
 import { SplitAnimation } from './module/js/page-04';
 import { ScrollScale } from './module/js/page-05';
+import { SplitFadeScroll } from './module/js/page-06';
 import { Parallax } from './module/js/page-07';
 import { Slider } from './module/js/page-08';
 import { SplideManager } from './module/js/page-09';
@@ -9,8 +11,8 @@ import { HoverImage } from './module/js/page-10';
 import { FvAnimation } from './module/js/page-11';
 import { FvPromiseAnimation } from './module/js/page-12';
 import { StickyScale } from './module/js/page-13';
-import { Accordion } from './module/other/page-01';
 import { Canvas } from './module/js/page-14';
+import { Accordion } from './module/other/page-01';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
@@ -21,7 +23,7 @@ if (pageAttribute === 'page01') {
   const fade = new ScrollAnimationObserver();
   fade.init();
 } else if (pageAttribute === 'page03') {
-  new loadAnimation();
+  new LoadAnimation();
 } else if (pageAttribute === 'page04') {
   const split = new SplitAnimation();
   split.init();

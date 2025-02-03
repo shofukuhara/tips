@@ -43,6 +43,9 @@ const description = 'Tips | js スクロール + テキスト一文字ずつ表�
       display: flex;
       align-items: center;
       justify-content: center;
+      @include media(sp) {
+        font-size: sp(24);
+      }
       @include media(pc) {
         font-size: pc(40);
       }
