@@ -3,19 +3,16 @@ import { gsap } from 'gsap';
 export class Floating {
   constructor() {
     this.button = document.querySelector('[data-button]');
-    this.visibleArea = document.querySelector('[data-trigger="visible"]');
+    this.visibleAreas = document.querySelectorAll('[data-trigger="visible"]');
     this.options = {
       rootMargin: '0px',
-      threshold: 0, // 交差検出をより正確に
+      threshold: 0.1,
     };
   }
 
   init() {
-    if (this.button && this.visible && this.hidden) {
-      gsap.set(this.button, { autoAlpha: 0 });
-      this.button.style.willChange = 'opacity'; // will-change を事前適用
-      this._createObserver();
-    }
+    gsap.set(this.button, { autoAlpha: 0 });
+    this._createObserver();
   }
 
   _createObserver() {
@@ -28,9 +25,9 @@ export class Floating {
         }
       });
     }, this.options);
-
-    observer.observe(this.visible);
-    observer.observe(this.hidden);
+    this.visibleAreas.forEach((area) => {
+      observer.observe(area);
+    });
   }
 
   // **ボタンをフェードイン**
@@ -38,6 +35,7 @@ export class Floating {
     gsap.to(this.button, {
       autoAlpha: 1,
       ease: 'power1.out',
+      duration: 0.5,
       onComplete: () => {
         this.button.setAttribute('data-button', 'visible');
       },
@@ -49,6 +47,7 @@ export class Floating {
     gsap.to(this.button, {
       autoAlpha: 0,
       ease: 'power1.out',
+      duration: 0.5,
       onComplete: () => {
         this.button.setAttribute('data-button', 'hidden');
       },
