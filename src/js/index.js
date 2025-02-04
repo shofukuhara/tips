@@ -12,6 +12,7 @@ import { FvAnimation } from './module/js/page-11';
 import { FvPromiseAnimation } from './module/js/page-12';
 import { StickyScale } from './module/js/page-13';
 import { Canvas } from './module/js/page-14';
+import { Floating } from './module/js/page-15';
 import { Accordion } from './module/other/page-01';
 
 const page = document.querySelector('[data-page]');
@@ -72,4 +73,6 @@ if (pageAttribute === 'page01') {
 } else if (pageAttribute === 'page14') {
   const draw = new Canvas();
   draw.init();
+} else if (pageAttribute === 'page15') {
+  new Floating().init();
 }
