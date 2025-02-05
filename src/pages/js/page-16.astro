@@ -15,12 +15,20 @@ const metadata = {
   <Header />
   <div class="p-page16">
     <iframe
-      src="https://player.vimeo.com/video/466003347"
+      src="https://player.vimeo.com/video/154373242?autoplay=1&loop=1&background=1"
       width="640"
       height="360"
+      allow="autoplay; fullscreen; picture-in-picture"
+      data-video
       allowfullscreen></iframe>
+    <div class="p-page15_floating">
+      <Button
+        text="音声 on/offボタン"
+        className=""
+        data={{ 'data-button': 'muting' }}
+      />
+    </div>
   </div>
-  <script src="https://player.vimeo.com/api/player.js"></script>
 </Layout>
 
 <style lang="scss">
@@ -30,8 +38,9 @@ const metadata = {
   .p-page16 {
     width: 100%;
     height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: pc(16);
   }
 </style>
