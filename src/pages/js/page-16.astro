@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const metadata = {
+  title: 'Tips | js フローティング表示・非表示',
+  description: 'Tips | js フローティング表示・非表示',
+};
+---
+
+<Layout {...metadata} pageData="page16">
+  <Header />
+  <div class="p-page16">
+    <iframe
+      src="https://player.vimeo.com/video/466003347"
+      width="640"
+      height="360"
+      allowfullscreen></iframe>
+  </div>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page16 {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
