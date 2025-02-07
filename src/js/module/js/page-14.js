@@ -4,8 +4,8 @@ export class Canvas {
     this.ctx = this.dom.getContext('2d');
     this.width = window.innerWidth;
     this.height = window.innerHeight;
-    this.dom.width = this.width / 2;
-    this.dom.height = this.height / 2;
+    this.dom.width = this.width;
+    this.dom.height = this.height;
 
     this.image = new Image();
     this.image.src = '../../public/assets/images/img_01.jpg';
@@ -23,6 +23,6 @@ export class Canvas {
 
   _draw() {
     this.ctx.clearRect(0, 0, this.dom.width, this.dom.height);
-    this.ctx.drawImage(this.image, 100, 100, this.dom.width, this.dom.height);
+    this.ctx.drawImage(this.image, 0, 0, this.dom.width, this.dom.height);
   }
 }

@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const metadata = {
+  title: 'Tips | js FVアニメーション(2)',
+  description: 'Tips | js FVアニメーション(2)',
+};
+---
+
+<Layout {...metadata} pageData="page17">
+  <Header />
+  <div class="p-page17">
+    <ul class="p-page17_list">
+      <li class="p-page17_item" style="--index:4">
+        <ImageFrame
+          srcPaths={['img_01.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+        <div class="p-page17_textArea">
+          <p class="p-page17_text">
+            テキストテキストテキスト<br />
+            テキストテキストテキスト
+          </p>
+        </div>
+      </li>
+      <li class="p-page17_item" style="--index:3">
+        <ImageFrame
+          srcPaths={['img_02.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+        <div class="p-page17_textArea">
+          <p class="p-page17_text">
+            テキストテキストテキスト<br />
+            テキストテキストテキスト
+          </p>
+        </div>
+      </li>
+      <li class="p-page17_item" style="--index:2">
+        <ImageFrame
+          srcPaths={['img_03.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+        <div class="p-page17_textArea">
+          <p class="p-page17_text">
+            テキストテキストテキスト<br />
+            テキストテキストテキスト
+          </p>
+        </div>
+      </li>
+      <li class="p-page17_item" style="--index:1">
+        <ImageFrame
+          srcPaths={['img_04.jpg']}
+          classNames="i"
+          loading="eager"
+          data-img=""
+        />
+        <div class="p-page17_textArea">
+          <p class="p-page17_text">
+            テキストテキストテキスト<br />
+            テキストテキストテキスト
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page17 {
+    width: 100%;
+    height: 100dvh;
+    position: relative;
+    .p-page17_list {
+      width: 100%;
+      height: 100dvh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      .p-page17_item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: var(--index);
+        overflow: clip;
+        .i {
+          scale: 1, 5;
+        }
+        .p-page17_textArea {
+          position: absolute;
+          bottom: pc(48);
+          left: pc(48);
+          .p-page17_text {
+            color: $color_white_01;
+            font-size: pc(64);
+          }
+        }
+      }
+    }
+  }
+</style>
