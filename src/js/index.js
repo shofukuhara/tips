@@ -15,6 +15,7 @@ import { Canvas } from './module/js/page-14';
 import { Floating } from './module/js/page-15';
 import { Video } from './module/js/page-16';
 import { FvAnimation2 } from './module/js/page-17';
+import { Hover } from './module/js/page-18';
 import { Accordion } from './module/other/page-01';
 
 const page = document.querySelector('[data-page]');
@@ -81,4 +82,6 @@ if (pageAttribute === 'page01') {
   new Video().init();
 } else if (pageAttribute === 'page17') {
   new FvAnimation2().init();
+} else if (pageAttribute === 'page18') {
+  new Hover().init();
 }

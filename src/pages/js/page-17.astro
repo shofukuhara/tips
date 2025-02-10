@@ -22,7 +22,7 @@ const metadata = {
           loading="eager"
           data-img=""
         />
-        <div class="p-page17_textArea">
+        <div class="p-page17_textArea" data-text>
           <p class="p-page17_text">
             テキストテキストテキスト<br />
             テキストテキストテキスト
@@ -36,7 +36,7 @@ const metadata = {
           loading="eager"
           data-img=""
         />
-        <div class="p-page17_textArea">
+        <div class="p-page17_textArea" data-text>
           <p class="p-page17_text">
             テキストテキストテキスト<br />
             テキストテキストテキスト
@@ -50,7 +50,7 @@ const metadata = {
           loading="eager"
           data-img=""
         />
-        <div class="p-page17_textArea">
+        <div class="p-page17_textArea" data-text>
           <p class="p-page17_text">
             テキストテキストテキスト<br />
             テキストテキストテキスト
@@ -64,7 +64,7 @@ const metadata = {
           loading="eager"
           data-img=""
         />
-        <div class="p-page17_textArea">
+        <div class="p-page17_textArea" data-text>
           <p class="p-page17_text">
             テキストテキストテキスト<br />
             テキストテキストテキスト
@@ -89,12 +89,13 @@ const metadata = {
       position: absolute;
       top: 0;
       left: 0;
+      overflow: hidden;
       .p-page17_item {
         position: absolute;
         top: 0;
         left: 0;
         z-index: var(--index);
-        overflow: clip;
+
         .i {
           scale: 1, 5;
         }
