@@ -9,7 +9,7 @@ export class Hover {
       x: this.pos.x,
       y: this.pos.y,
     };
-    // this.speed = 0.5;
+    this.speed = 0.5;
   }
 
   init() {
@@ -21,15 +21,29 @@ export class Hover {
 
     this.container.addEventListener('mouseenter', () => {
       this.cursor.setAttribute('data-cursor', 'mouseOver');
+      gsap.to(this.cursor, {
+        autoAlpha: 1,
+        scale: 1.2,
+      });
     });
     this.container.addEventListener('mouseleave', () => {
       this.cursor.setAttribute('data-cursor', '');
+      gsap.to(this.cursor, {
+        autoAlpha: 0,
+        scale: 1,
+      });
     });
   }
 
   _mouseOver() {
-    let cursorSetX = gsap.quickSetter(this.cursor, 'x', 'px');
-    let cursorSetY = gsap.quickSetter(this.cursor, 'y', 'px');
+    let cursorSetX = gsap.quickSetter(this.cursor, 'x', 'px', {
+      duration: 3,
+      ease: 'power3',
+    });
+    let cursorSetY = gsap.quickSetter(this.cursor, 'y', 'px', {
+      duration: 3,
+      ease: 'power3',
+    });
     gsap.ticker.add(() => {
       this.pos.x += this.mouse.x - this.pos.x;
       this.pos.y += this.mouse.y - this.pos.y;

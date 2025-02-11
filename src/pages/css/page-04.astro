@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const title = 'Tips | css ローディング三角関数';
+const description = 'Tips | css ローディング三角関数';
+---
+
+<Layout {title} {description}>
+  <Header />
+  <div class="p-page04">
+    <div class="p-page04_area">
+      <span class="p-page04_item" style="--index:0"></span>
+      <span class="p-page04_item" style="--index:1"></span>
+      <span class="p-page04_item" style="--index:2"></span>
+      <span class="p-page04_item" style="--index:3"></span>
+      <span class="p-page04_item" style="--index:4"></span>
+      <span class="p-page04_item" style="--index:5"></span>
+      <span class="p-page04_item" style="--index:6"></span>
+      <span class="p-page04_item" style="--index:7"></span>
+      <span class="p-page04_item" style="--index:8"></span>
+      <span class="p-page04_item" style="--index:9"></span>
+      <span class="p-page04_item" style="--index:10"></span>
+      <span class="p-page04_item" style="--index:11"></span>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page04 {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .p-page04_area {
+      width: pc(480);
+      height: pc(480);
+      position: relative;
+      .p-page04_item {
+        --angle: calc(360deg / 12 * var(--index));
+        --x: calc(cos(var(--angle)) * 500%);
+        --y: calc(sin(var(--angle)) * 500%);
+        translate: calc(var(--x) - 50%) calc(var(--y) - 50%);
+        width: pc(40);
+        height: pc(40);
+        background-color: rgb(100, var(--index), 255);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        --duration: 2s;
+        --delay: calc(var(--duration) * var(--index) / 12);
+        animation: animate var(--duration) var(--delay) infinite;
+        @keyframes animate {
+          0% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+            // transform: scale(0.7);
+          }
+        }
+      }
+    }
+  }
+</style>
