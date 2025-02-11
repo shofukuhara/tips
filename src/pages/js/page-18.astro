@@ -6,15 +6,16 @@ import ImageFrame from '../../modules/ImageFrame.astro';
 const imagePath = './assets/images/';
 // headタグ
 const metadata = {
-  title: 'Tips | js ボタンhover',
-  description: 'Tips | js ボタンhover',
+  title: 'Tips | js hover',
+  description: 'Tips | js hover',
 };
 ---
 
 <Layout {...metadata} pageData="page18">
   <Header />
   <div class="p-page18_fv">
-    <Button text="hover" className="" data={{ 'data-button': 'nuhover' }} />
+    <div class="p-page18_container" data-container></div>
+    <div class="p-page18_cursor" data-cursor></div>
   </div>
 </Layout>
 
@@ -27,5 +28,35 @@ const metadata = {
     height: 100dvh;
     display: grid;
     place-content: center;
+    .p-page18_container {
+      width: pc(500);
+      height: pc(500);
+      background-color: #d2d2d2;
+      position: relative;
+    }
+    .p-page18_cursor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgb(0 0 0 / 20%);
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      pointer-events: none;
+      &.over {
+      }
+    }
+    [data-cursor] {
+      opacity: 0;
+      visibility: hidden;
+    }
+    [data-cursor='mouseOver'] {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 </style>
