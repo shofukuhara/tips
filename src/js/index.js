@@ -1,4 +1,4 @@
-import { Ancher } from './module/js/page-01';
+import { Anchor } from './module/js/page-01';
 import { ScrollAnimationObserver } from './module/js/page-02';
 import { LoadAnimation } from './module/js/page-03';
 import { SplitAnimation } from './module/js/page-04';
@@ -16,12 +16,13 @@ import { Floating } from './module/js/page-15';
 import { Video } from './module/js/page-16';
 import { FvAnimation2 } from './module/js/page-17';
 import { Hover } from './module/js/page-18';
+import { Motion } from './module/js/page-19';
 import { Accordion } from './module/other/page-01';
 
 const page = document.querySelector('[data-page]');
 const pageAttribute = page.getAttribute('data-page');
 if (pageAttribute === 'page01') {
-  const anchor = new Ancher();
+  const anchor = new Anchor();
   anchor.init();
 } else if (pageAttribute === 'page02') {
   const fade = new ScrollAnimationObserver();
@@ -84,4 +85,6 @@ if (pageAttribute === 'page01') {
   new FvAnimation2().init();
 } else if (pageAttribute === 'page18') {
   new Hover().init();
+} else if (pageAttribute === 'page19') {
+  new Motion().init();
 }

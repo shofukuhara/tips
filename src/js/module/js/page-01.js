@@ -2,12 +2,10 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollToPlugin);
 
-export class Ancher {
+export class Anchor {
   constructor() {
     this.anchorLinks = document.querySelectorAll('a[href^="#"]');
     this.header = document.querySelector('[data-header]');
-    this.headerHeight = this._headerHeight(); // 初期のヘッダー高さ
-    this._resizeListener();
   }
 
   init() {
@@ -28,19 +26,13 @@ export class Ancher {
       duration: 1,
       ease: 'power2.out',
       scrollTo: {
-        y: element.offsetTop,
+        y: element.offsetTop - this.headerHeight,
         autoKill: false,
       },
     });
   }
 
-  _headerHeight() {
-    return this.header.getBoundingClientRect().height; // 少数点まで取得
-  }
-
-  _resizeListener() {
-    window.addEventListener('resize', () => {
-      this.headerHeight = this._headerHeight();
-    });
+  get headerHeight() {
+    return this.header.getBoundingClientRect().height;
   }
 }
