@@ -1,5 +1,6 @@
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
+import { BreakpointObserver } from '../utils/breakpoint-utils';
 
 export class SplideManager {
   constructor() {
@@ -7,7 +8,11 @@ export class SplideManager {
     this.splideInstance = null;
     this.options = {
       sp: {
-        type: 'loop',
+        autoplay: true,
+        type: 'fade',
+        rewind: true,
+        rewind: true,
+        speed: 1000,
         perPage: 1,
       },
       pc: {
@@ -17,21 +22,18 @@ export class SplideManager {
         perMove: 1,
       },
     };
-    this.mediaQuery = window.matchMedia('(min-width: 768px)');
   }
 
-  getOptions() {
-    let options;
-    if (this.mediaQuery.matches) {
-      options = this.options.pc;
+  getOptions(isPC) {
+    if (isPC) {
+      return this.options.pc;
     } else {
-      options = this.options.sp;
+      return this.options.sp;
     }
-    return options;
   }
 
-  initializeSplide() {
-    const options = this.getOptions();
+  initializeSplide(isPC) {
+    const options = this.getOptions(isPC);
     if (this.splideInstance) {
       this.splideInstance.destroy();
     }
@@ -40,14 +42,8 @@ export class SplideManager {
   }
 
   init() {
-    // 初期化処理
-    window.addEventListener('DOMContentLoaded', () => {
-      this.initializeSplide();
-    });
-
-    // リサイズ時の処理
-    this.mediaQuery.addEventListener('change', () => {
-      this.initializeSplide();
+    new BreakpointObserver((isPC) => {
+      this.initializeSplide(isPC);
     });
   }
 }

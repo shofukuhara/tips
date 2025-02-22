@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   .splide {
-    @include media(pc) {
-      // width: pc(800);
+    @include media(sp) {
+      width: sp(320);
     }
     > .splide__arrows {
       position: relative;
@@ -17,7 +17,9 @@
       > .splide__track {
         > .splide__list {
           > .splide__slide {
-            width: calc(pc(800) / 3);
+            @include media(pc) {
+              width: calc(pc(800) / 3);
+            }
             aspect-ratio: 1;
             background-color: blue;
             color: $color_white_01;
