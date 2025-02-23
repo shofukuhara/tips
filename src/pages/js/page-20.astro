@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../layouts/Header.astro';
+import Button from '../../components/Button.astro';
+import ImageFrame from '../../modules/ImageFrame.astro';
+const imagePath = './assets/images/';
+// headタグ
+const metadata = {
+  title: 'Tips | js エリアに応じて色変更',
+  description: 'Tips | js エリアに応じて色変更',
+};
+---
+
+<Layout {...metadata} pageData="page20">
+  <Header />
+  <div class="p-page20">
+    <nav class="p-page20_nav">
+      <ul class="p-page20_list">
+        <li class="p-page20_item" data-item="0">TOP</li>
+        <li class="p-page20_item" data-item="1">item01</li>
+        <li class="p-page20_item" data-item="2">item02</li>
+        <li class="p-page20_item" data-item="3">item03</li>
+        <li class="p-page20_item" data-item="4">item04</li>
+      </ul>
+    </nav>
+    <section class="p-page20_area" data-area="0">TOP</section>
+    <section class="p-page20_area" data-area="1">section02</section>
+    <section class="p-page20_area" data-area="2">section03</section>
+    <section class="p-page20_area" data-area="3">section04</section>
+    <section class="p-page20_area" data-area="4">section05</section>
+  </div>
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/foundation/setting/mixin' as *;
+  @use '../../styles/foundation/setting/function' as *;
+  @use '../../styles/foundation/variable/color' as *;
+  .p-page20 {
+    .p-page20_list {
+      width: 100%;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: pc(40);
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      .p-page20_item {
+        font-size: pc(40);
+      }
+    }
+    .p-page20_area {
+      width: 100%;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #000;
+      font-size: pc(40);
+      &:nth-of-type(1) {
+        background-color: rgb(208, 0, 255, 0.5);
+      }
+      &:nth-of-type(2) {
+        background-color: rgba(0, 0, 255, 0.5);
+      }
+      &:nth-of-type(3) {
+        background-color: rgba(0, 255, 85, 0.5);
+      }
+      &:nth-of-type(4) {
+        background-color: rgba(221, 255, 0, 0.5);
+      }
+      &:nth-of-type(5) {
+        background-color: rgba(255, 98, 0, 0.5);
+      }
+    }
+  }
+</style>

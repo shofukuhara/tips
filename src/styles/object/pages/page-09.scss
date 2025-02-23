@@ -17,15 +17,15 @@
       > .splide__track {
         > .splide__list {
           > .splide__slide {
-            @include media(pc) {
-              width: calc(pc(800) / 3);
-            }
             aspect-ratio: 1;
             background-color: blue;
             color: $color_white_01;
             display: flex;
             align-items: center;
             justify-content: center;
+            @include media(pc) {
+              width: calc(pc(800) / 3);
+            }
           }
         }
       }
