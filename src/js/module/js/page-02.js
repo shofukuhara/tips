@@ -1,6 +1,5 @@
 import { gsap } from 'gsap';
-import { CustomEase } from 'gsap/CustomEase';
-gsap.registerPlugin(CustomEase);
+
 export class ScrollAnimationObserver {
   constructor(options = { threshold: 0.55, rootMargin: '0px' }) {
     this.observers = [];
@@ -14,10 +13,11 @@ export class ScrollAnimationObserver {
     document.querySelectorAll(`[${this.fadeItem}]`).forEach((element) => {
       const rect = element.getBoundingClientRect();
       const elementTop = rect.top + scrollY;
-
       if (elementTop < scrollY) {
-        gsap.set(element, { autoAlpha: 1 });
-        element.setAttribute(this.fadeItem, 'active');
+        if (element.hasAttribute(this.fadeItem)) {
+          gsap.set(element, { autoAlpha: 1 });
+          element.setAttribute(this.fadeItem, 'active');
+        }
       }
     });
   }
@@ -28,17 +28,18 @@ export class ScrollAnimationObserver {
       if (entry.isIntersecting) {
         const scrollY = window.scrollY;
         const elementTop = target.getBoundingClientRect().top + scrollY;
-
         // 現在地より下の要素だけフェードイン
         if (elementTop > scrollY) {
-          gsap.to(target, {
-            duration: 2,
-            ease: 'power4.out',
-            autoAlpha: 1,
-            onComplete: () => {
-              target.setAttribute(this.fadeItem, 'active');
-            },
-          });
+          if (target.hasAttribute(this.fadeItem)) {
+            gsap.to(target, {
+              duration: 2,
+              ease: 'power4.out',
+              autoAlpha: 1,
+              onComplete: () => {
+                target.setAttribute(this.fadeItem, 'active');
+              },
+            });
+          }
         }
       }
     });
@@ -58,10 +59,13 @@ export class ScrollAnimationObserver {
   }
 
   init() {
-    this._initVisibility(); 
+    this._initVisibility();
     this._createObserver(`[${this.fadeItem}]`, {
       rootMargin: '0px 0px 0px 0px',
       threshold: 0.55,
     });
   }
 }
+
+
+new ScrollAnimationObserver().init();

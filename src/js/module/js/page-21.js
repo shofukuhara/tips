@@ -51,3 +51,4 @@ export class MyCalendar {
     this.calendar.render();
   }
 }
+
