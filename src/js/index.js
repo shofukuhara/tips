@@ -19,6 +19,7 @@ import { Hover } from './module/js/page-18';
 import { Motion } from './module/js/page-19';
 import { NavColorChange } from './module/js/page-20';
 import { MyCalendar } from './module/js/page-21';
+import { HoverItem } from './module/js/page-22';
 import { Accordion } from './module/other/page-01';
 
 const page = document.querySelector('[data-page]');
@@ -93,4 +94,6 @@ if (pageAttribute === 'page01') {
   new NavColorChange().init();
 } else if (pageAttribute === 'page21') {
   new MyCalendar().init();
+} else if (pageAttribute === 'page22') {
+  new HoverItem().init();
 }
