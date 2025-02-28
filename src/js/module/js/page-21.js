@@ -21,7 +21,7 @@ export class MyCalendar {
       initialView: 'dayGridMonth',
       locale: 'ja',
       timeZone: 'Asia/Tokyo',
-      googleCalendarApiKey: '', 
+      googleCalendarApiKey: '',
       events: this.defaultEvents,
       headerToolbar: this.toolbarConfig,
       buttonText: { today: '今月' },
@@ -51,4 +51,3 @@ export class MyCalendar {
     this.calendar.render();
   }
 }
-

@@ -67,5 +67,4 @@ export class ScrollAnimationObserver {
   }
 }
 
-
 new ScrollAnimationObserver().init();

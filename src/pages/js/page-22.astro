@@ -14,12 +14,20 @@ const metadata = {
 <Layout {...metadata} pageData="page22">
   <Header />
   <div class="p-page22">
-    <div class="p-page22_area" data-cursor-area>
+    <!-- <div class="p-page22_area" data-cursor-area>
       <div class="cursor" style="opacity: 0; visibility: hidden;" data-cursor>
       </div>
       <div class="p-page_item" data-item></div>
       <div class="p-page_item" data-item></div>
-    </div>
+    </div> -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
   </div>
 </Layout>
 
@@ -30,9 +38,14 @@ const metadata = {
   .p-page22 {
     width: 100%;
     height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+    }
     .p-page22_area {
       width: pc(1000);
       height: pc(800);
